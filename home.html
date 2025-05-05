@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Labib's Video Store - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #111;
+      color: #f0f0f0;
+    }
+
+    /* Flashy Welcome Animation */
+    #welcomeScreen {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: yellow;
+      color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 3rem;
+      font-weight: bold;
+      z-index: 9999;
+      animation: flashy 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes flashy {
+      0% { background-color: yellow; color: #111; }
+      50% { background-color: orange; color: #000; }
+      100% { background-color: red; color: #fff; }
+    }
+
+    /* Top Yellow Hiring Banner */
+    .banner {
+      background-color: #ffeb3b;
+      color: #222;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1rem;
+    }
+
+    .banner button {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      color: #d32f2f;
+      cursor: pointer;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: linear-gradient(to right, #1f1f1f, #222);
+      border-bottom: 1px solid #333;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      color: #00b894;
+    }
+
+    .user-profile {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .user-profile img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 2px solid #00b894;
+    }
+
+    .user-profile span {
+      font-weight: 600;
+    }
+
+    /* Image Slider */
+    .slider {
+      position: relative;
+      width: 100%;
+      height: 350px;
+      overflow: hidden;
+    }
+
+    .slider img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+    }
+
+    .slider img.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    /* Videos Section */
+    .videos {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      padding: 40px;
+    }
+
+    .video-card {
+      background-color: #1c1c1c;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .video-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    }
+
+    .video-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .video-card p {
+      padding: 15px;
+      text-align: center;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #151515;
+      color: #bbb;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.95rem;
+      border-top: 1px solid #333;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    @media (max-width: 768px) {
+      .videos {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Welcome Screen -->
+  <div id="welcomeScreen">Welcome</div>
+
+  <!-- Hiring Banner -->
+  <div class="banner" id="banner">
+    <span>🎬 We are hiring actors! If interested, contact Labib.</span>
+    <button onclick="document.getElementById('banner').style.display='none'">✖</button>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <h1>Labib's Video Store</h1>
+    <div class="user-profile">
+      <span id="username">User</span>
+      <img id="profilePic" src="https://randomuser.me/api/portraits/men/45.jpg" alt="Profile">
+    </div>
+  </header>
+
+  <!-- Image Slider -->
+  <div class="slider" id="slider">
+    <img src="https://i.ibb.co.com/C3HdFMRN/Whats-App-Image-2025-05-05-at-5-17-29-AM.jpg/1200x350/333/fff?text=Featured+Movie+1" class="active" />
+    <img src="https://via.placeholder.com/1200x350/555/fff?text=Exclusive+Scene+2" />
+    <img src="https://via.placeholder.com/1200x350/777/fff?text=Top+Pick+3" />
+    <img src="https://i.ibb.co.com/C3HdFMRN/Whats-App-Image-2025-05-05-at-5-17-29-AM.jpg/1200x350/999/000?text=Retro+Classic+4" />
+  </div>
+
+  <!-- Video Section -->
+  <section class="videos">
+    <div class="video-card">
+      <a href="https://www.youtube.com/watch?v=video1" target="_blank">
+        <img src="https://via.placeholder.com/500x300?text=Video+1" alt="Video 1">
+        <p>Classic Action Film</p>
+      </a>
+    </div>
+    <div class="video-card">
+      <a href="https://www.youtube.com/watch?v=video2" target="_blank">
+        <img src="https://i.ibb.co.com/C3HdFMRN/Whats-App-Image-2025-05-05-at-5-17-29-AM.jpg/500x300?text=Video+2" alt="Video 2">
+        <p>Romantic Drama</p>
+      </a>
+    </div>
+    <div class="video-card">
+      <a href="https://www.youtube.com/watch?v=video3" target="_blank">
+        <img src="https://via.placeholder.com/500x300?text=Video+3" alt="Video 3">
+        <p>Bangla Cult Classic</p>
+      </a>
+    </div>
+    <div class="video-card">
+      <a href="https://www.youtube.com/watch?v=video4" target="_blank">
+        <img src="https://via.placeholder.com/500x300?text=Video+4" alt="Video 4">
+        <p>Thriller Short</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p><strong>Contact:</strong> BDU hall 2103 no room, Kaliakoir, Gazipur</p>
+    <p>Email: labibstore@example.com | Phone: +880 123-456-789</p>
+    <p>&copy; 2025 Labib's Video Store. All rights reserved.</p>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    // Welcome Screen Removal
+    setTimeout(() => {
+      document.getElementById("welcomeScreen").style.display = "none";
+    }, 3000);
+
+    // Populate User Info from localStorage
+    const username = localStorage.getItem("username") || "LabibFan99";
+    const profilePic = localStorage.getItem("profilePic") || "https://randomuser.me/api/portraits/men/45.jpg";
+
+    document.getElementById("username").textContent = username;
+    document.getElementById("profilePic").src = profilePic;
+
+    // Image Slider
+    const slides = document.querySelectorAll('#slider img');
+    let index = 0;
+
+    setInterval(() => {
+      slides.forEach((img, i) => img.classList.remove('active'));
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('active');
+    }, 2000);
+  </script>
+
+</body>
+</html>

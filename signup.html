@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Labib's Video Store - Signup</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #1c1c1c;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .overlay, .signup-container {
+      position: absolute;
+      background-color: #292929;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+      transition: all 0.6s ease-in-out;
+    }
+
+    .overlay {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeIn 1s ease-out;
+    }
+
+    .overlay h2 {
+      margin-bottom: 20px;
+    }
+
+    .overlay button {
+      margin: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #ff4c4c;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .overlay button:hover {
+      background-color: #ff1a1a;
+    }
+
+    .message {
+      margin-top: 15px;
+      color: #ffaaaa;
+      font-weight: bold;
+    }
+
+    .signup-container {
+      display: none;
+      flex-direction: row;
+      width: 80%;
+      max-width: 900px;
+      height: 500px;
+      overflow: hidden;
+      animation: slideUp 1s forwards;
+    }
+
+    .signup-container .image-box {
+      flex: 1;
+      background: url('https://i.ibb.co.com/C3HdFMRN/Whats-App-Image-2025-05-05-at-5-17-29-AM.jpg') center/cover no-repeat;
+    }
+
+    .signup-container .form-box {
+      flex: 1;
+      background-color: #2e2e2e;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .form-box h2 {
+      margin-bottom: 20px;
+      font-size: 28px;
+      text-align: center;
+    }
+
+    .form-box input {
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      background-color: #444;
+      color: #fff;
+    }
+
+    .form-box button {
+      margin-top: 20px;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      background-color: #00b894;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-box button:hover {
+      background-color: #00a383;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="overlay" id="vpnCheck">
+    <h2>Are you using DIPJOL VPN?</h2>
+    <div>
+      <button onclick="vpnResponse(true)">Yes</button>
+      <button onclick="vpnResponse(false)">No</button>
+    </div>
+    <div class="message" id="vpnMessage"></div>
+  </div>
+
+  <div class="signup-container" id="signupBox">
+    <div class="image-box"></div>
+    <div class="form-box">
+      <h2>Signup</h2>
+      <input type="text" id="username" placeholder="Username" />
+      <input type="email" id="email" placeholder="Email" />
+      <input type="password" id="password" placeholder="Password" />
+      <button onclick="handleSignup()">Sign Up</button>
+    </div>
+  </div>
+
+  <script>
+    function vpnResponse(isUsingVPN) {
+      const overlay = document.getElementById("vpnCheck");
+      const message = document.getElementById("vpnMessage");
+      const signupBox = document.getElementById("signupBox");
+
+      if (!isUsingVPN) {
+        message.textContent = "Please use DIPJOL VPN and back again.";
+      } else {
+        overlay.style.opacity = "0";
+        overlay.style.transform = "scale(0.8)";
+        setTimeout(() => {
+          overlay.style.display = "none";
+          signupBox.style.display = "flex";
+        }, 600);
+      }
+    }
+
+    function handleSignup() {
+      const username = document.getElementById("username").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+
+      if (!username || !email || !password) {
+        alert("Please fill out all fields.");
+        return;
+      }
+
+      // Save to localStorage
+      localStorage.setItem("username", username);
+      localStorage.setItem("profilePic", "https://randomuser.me/api/portraits/men/22.jpg");
+
+      // Redirect to home
+      window.location.href = "home.html";
+    }
+  </script>
+
+</body>
+</html>

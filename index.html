@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Labib's Video Store - Welcome</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: #121212;
+      color: #f0f0f0;
+    }
+
+    .welcome-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  flex-wrap: wrap;
+}
+
+.welcome-image {
+  max-width: 400px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.welcome-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.welcome-text h1 {
+  font-size: 3rem;
+  color: #00b894;
+  margin-bottom: 10px;
+}
+
+.welcome-text p {
+  font-size: 1.2rem;
+  color: #cccccc;
+  margin-bottom: 20px;
+}
+
+    .signup-btn {
+      padding: 12px 30px;
+      background-color: #00b894;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .signup-btn:hover {
+      background-color: #00a383;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      padding: 40px 0;
+      background-color: #1e1e1e;
+      font-size: 1.2rem;
+    }
+
+    .stats div {
+      text-align: center;
+    }
+
+    .stats h2 {
+      font-size: 2rem;
+      margin: 0;
+      color: #00cec9;
+    }
+
+    .testimonials {
+      padding: 60px 20px;
+      background-color: #181818;
+    }
+
+    .testimonials h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 40px;
+    }
+
+    .testimonial-cards {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background-color: #252525;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 300px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin: 10px 0 5px;
+      font-size: 1.1rem;
+      color: #00cec9;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #cccccc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #111;
+      color: #666;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+ <header>
+  <div class="welcome-container">
+    <img src="https://i.ibb.co.com/C3HdFMRN/Whats-App-Image-2025-05-05-at-5-17-29-AM.jpg" alt="Labib's Video Store" class="welcome-image" />
+    <div class="welcome-text">
+      <h1>Labib's Video Store</h1>
+      <p>The ultimate destination for streaming rare, classic, and exclusive movies curated with love. Join our underground community of video connoisseurs.</p>
+      <button class="signup-btn" onclick="window.location.href='signup.html'">Sign Up Now</button>
+    </div>
+  </div>
+</header>
+
+  <section class="stats">
+    <div>
+      <h2>4</h2>
+      <p>Videos Available</p>
+    </div>
+    <div>
+      <h2>25+</h2>
+      <p>Total Views</p>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2>What Our Members Say</h2>
+    <div class="testimonial-cards">
+      <div class="card">
+        <img src="https://i.ibb.co.com/8nX1cHBx/Whats-App-Image-2025-05-05-at-5-04-37-AM.jpg" alt="User 1">
+        <h3>Younus</h3>
+        <p>"Labib’s collection is unreal. I found films here that I searched for years. The experience is smooth and addictive."</p>
+      </div>
+      <div class="card">
+        <img src="https://drive.google.com/file/d/1qMyxi7ZUl6j2-w5D7aWK1OFR1PM7FeAl/view?usp=drive_link" alt="User 2">
+        <h3>Jim</h3>
+        <p>"I love the vibe here. It's modern, fast, and filled with gems. Highly recommended if you're a true film fan."</p>
+      </div>
+      <div class="card">
+        <img src="https://i.ibb.co.com/mVBFP7fb/Whats-App-Image-2025-05-05-at-5-04-37-AM-1.jpg" alt="User 3">
+        <h3>Pubitro</h3>
+        <p>"I didn’t expect to be blown away by the rare Bangla movies collection. It’s like a hidden Netflix for legends."</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Labib's Video Store. All rights reserved.
+  </footer>
+
+</body>
+</html>
